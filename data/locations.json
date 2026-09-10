@@ -1,0 +1,2891 @@
+[
+  {
+    "id": 2,
+    "name": "The Quad",
+    "building": "Farish Hall",
+    "floor": 0,
+    "category": "facility",
+    "description": "The historic William Stamps Farish Quadrangle on the Cullen (North) Campus. Coordinate supplied by the school map maintainer.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "quad",
+      "quadrangle",
+      "farish",
+      "upper school",
+      "north campus",
+      "courtyard"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "The Great Lawn",
+    "building": "North Campus",
+    "floor": 0,
+    "category": "facility",
+    "description": "Large outdoor gathering lawn beside the Campus Center.",
+    "lat": 29.742532278734316,
+    "lng": -95.42957768361349,
+    "tags": [
+      "great lawn",
+      "lawn",
+      "grass",
+      "outdoor",
+      "events",
+      "north campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Stude/Sarofim Learning Resource Center",
+    "building": "Stude/Sarofim Learning Resource Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Upper School learning resource building with the Taub Library and Academic Commons, nurse, Senior Country, and Upper School Office.",
+    "lat": 29.742406278747964,
+    "lng": -95.42888050019462,
+    "tags": [
+      "stude",
+      "sarofim",
+      "learning resource center",
+      "lrc",
+      "upper school",
+      "library"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Mewbourne",
+    "building": "Mewbourne Hall",
+    "floor": 0,
+    "category": "classroom",
+    "description": "Upper School academic building on the Cullen (North) Campus.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "mewbourne",
+      "upper school",
+      "academic",
+      "classrooms",
+      "north campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Fine Arts Tunnel Entrance",
+    "building": "Westheimer Crossing",
+    "floor": 0,
+    "category": "facility",
+    "description": "South-side entrance to the Western Passage / Fine Arts pedestrian tunnel beneath Westheimer Road.",
+    "lat": 29.74165196105179,
+    "lng": -95.42924199841801,
+    "tags": [
+      "western passage",
+      "fine arts tunnel",
+      "tunnel",
+      "crossing",
+      "westheimer",
+      "pedestrian"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Virginia Stuller Tatham (VST) Fine Arts Center",
+    "building": "VST Fine Arts Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Fine arts center commonly called VST; includes Lowe Theatre.",
+    "lat": 29.74154175861272,
+    "lng": -95.42965809836579,
+    "tags": [
+      "vst",
+      "virginia stuller tatham",
+      "fine arts",
+      "arts center",
+      "theater",
+      "music"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "George’s Middle School",
+    "building": "George’s Middle School",
+    "floor": 0,
+    "category": "classroom",
+    "description": "Middle School academic building for Classes 6–8, with its library, office, and reception desk.",
+    "lat": 29.740843369800963,
+    "lng": -95.42949787118337,
+    "tags": [
+      "george's",
+      "georges",
+      "middle school",
+      "classes 6 7 8",
+      "classrooms",
+      "brown campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Athletic Facilities",
+    "building": "Smith Student Athletic Center",
+    "floor": 0,
+    "category": "sports",
+    "description": "Main South Campus athletic facilities area, including the Smith Student Athletic Center and nearby courts.",
+    "lat": 29.740707030383764,
+    "lng": -95.42784913344983,
+    "tags": [
+      "ssac",
+      "smith student athletic center",
+      "gym",
+      "athletics",
+      "basketball"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Big Red Pavilion",
+    "building": "South Campus Athletics",
+    "floor": 0,
+    "category": "sports",
+    "description": "Covered South Campus athletic pavilion identified as “Big Red” on official maps.",
+    "lat": 29.74105170395936,
+    "lng": -95.42786236929993,
+    "tags": [
+      "big red",
+      "big red pavilion",
+      "covered court",
+      "court",
+      "gym",
+      "sports"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Admissions Office",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "office",
+    "description": "School Admissions Office in the Campus Center.",
+    "lat": 29.742834434922653,
+    "lng": -95.42908064566133,
+    "tags": [
+      "admission",
+      "admissions",
+      "prospective family",
+      "tour",
+      "enrollment",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "College Counseling Office",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "office",
+    "description": "College Counseling Office in the Campus Center. Interior position is approximate.",
+    "lat": 29.742918808665642,
+    "lng": -95.42907815397925,
+    "tags": [
+      "college counseling",
+      "counselor",
+      "college",
+      "office",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Library (Floor 2)",
+    "building": "Stude/Sarofim Learning Resource Center",
+    "floor": 2,
+    "category": "facility",
+    "description": "Upper School library and academic commons on Floor 2, also identified in public materials as Taub Library and S201.",
+    "lat": 29.742339257421982,
+    "lng": -95.42881065305731,
+    "tags": [
+      "taub library",
+      "s201",
+      "upper school library",
+      "academic commons",
+      "study",
+      "books"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Chao Assembly Hall",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Assembly and event hall in the Campus Center; current school calendars use location code CCChaoHall.",
+    "lat": 29.742917658465696,
+    "lng": -95.4290722755249,
+    "tags": [
+      "chao family assembly hall",
+      "chao hall",
+      "ccchaohall",
+      "assembly",
+      "events",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Spirit Store",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "School Spirit Store in the Campus Center.",
+    "lat": 29.74282784869317,
+    "lng": -95.42904150225102,
+    "tags": [
+      "spirit store",
+      "school store",
+      "merchandise",
+      "uniform",
+      "apparel",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Flores Dining Hall",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "dining",
+    "description": "The Campus Center’s approximately 10,000-square-foot main dining hall, used by Middle and Upper School students.",
+    "lat": 29.74277607143754,
+    "lng": -95.42949236900472,
+    "tags": [
+      "flores hall",
+      "dining hall",
+      "cafeteria",
+      "lunch",
+      "food",
+      "middle upper school"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Maverick Cafe",
+    "building": "Flores Hall and Campus Center",
+    "floor": 0,
+    "category": "dining",
+    "description": "Cafe in the Campus Center. Service hours and access should be confirmed with the school.",
+    "lat": 29.742681037806562,
+    "lng": -95.42969910512761,
+    "tags": [
+      "maverick cafe",
+      "café",
+      "cafe",
+      "coffee",
+      "snacks",
+      "food",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Frankel Balcony and Dining Room (Floor 2)",
+    "building": "Flores Hall and Campus Center",
+    "floor": 2,
+    "category": "dining",
+    "description": "Named balcony and dining room on Floor 2 of the Campus Center.",
+    "lat": 29.742771383121422,
+    "lng": -95.42915219047491,
+    "tags": [
+      "frankel",
+      "balcony",
+      "dining room",
+      "food",
+      "campus center"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Softball Complex",
+    "building": "South Campus Athletics",
+    "floor": 0,
+    "category": "sports",
+    "description": "Softball complex on the South Campus.",
+    "lat": 29.74015841897217,
+    "lng": -95.43076106430858,
+    "tags": [
+      "softball complex",
+      "softball field",
+      "south campus",
+      "diamond",
+      "sports",
+      "field"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Liu Court",
+    "building": "Smith Student Athletic Center",
+    "floor": 0,
+    "category": "sports",
+    "description": "Competition court in the Smith Student Athletic Center (SSAC).",
+    "lat": 29.74033835653949,
+    "lng": -95.4279020084113,
+    "tags": [
+      "liu court",
+      "basketball",
+      "volleyball",
+      "court",
+      "ssac",
+      "gym"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Ankenman Tradition Room",
+    "building": "Smith Student Athletic Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Named meeting and tradition room in the SSAC, listed with room code TR.",
+    "lat": 29.74079928470431,
+    "lng": -95.42786154258516,
+    "tags": [
+      "ankenman tradition room",
+      "tradition room",
+      "tr",
+      "meeting",
+      "ssac"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Finnegan Field",
+    "building": "Scottland Yard",
+    "floor": 0,
+    "category": "sports",
+    "description": "Field at Scottland Yard, south of West Alabama and east of Buffalo Speedway.",
+    "lat": 29.737938295643623,
+    "lng": -95.4293075153385,
+    "tags": [
+      "finnegan field",
+      "scottland yard",
+      "field hockey",
+      "soccer",
+      "lacrosse",
+      "wet turf"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Scotty Caven Field",
+    "building": "Scottland Yard",
+    "floor": 0,
+    "category": "sports",
+    "description": "Field at Scottland Yard used for field sports; adjacent to the Angie Kensinger Pavilion.",
+    "lat": 29.737118312192393,
+    "lng": -95.42919538964199,
+    "tags": [
+      "scotty caven field",
+      "caven field",
+      "scottland yard",
+      "field hockey",
+      "soccer",
+      "lacrosse"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "The Angie Kensinger Pavilion",
+    "building": "Scottland Yard",
+    "floor": 0,
+    "category": "facility",
+    "description": "Athletics pavilion overlooking Caven Field, opened in September 2025 as an event and meeting hub.",
+    "lat": 29.737368623801615,
+    "lng": -95.42844079760725,
+    "tags": [
+      "angie kensinger pavilion",
+      "kensinger",
+      "pavilion",
+      "caven field",
+      "events",
+      "athletics"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Taub Parking Garage",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Parking garage serving the Taub Campus.",
+    "lat": 29.740330714869398,
+    "lng": -95.43154083927043,
+    "tags": [
+      "taub parking garage",
+      "taub garage",
+      "parking garage",
+      "parking",
+      "car",
+      "taub campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Blanton Family Tennis Center",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "sports",
+    "description": "Blanton Family Tennis Center on the Taub Campus.",
+    "lat": 29.739801402342824,
+    "lng": -95.43078931876529,
+    "tags": [
+      "blanton family tennis center",
+      "tennis courts",
+      "tennis",
+      "courts",
+      "taub campus",
+      "racquet"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Ligums Practice Facility",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "sports",
+    "description": "Indoor practice facility on the Taub Campus with training space, batting cage, and locker room.",
+    "lat": 29.739645602489016,
+    "lng": -95.43159456115265,
+    "tags": [
+      "ligums practice facility",
+      "indoor practice",
+      "batting cage",
+      "locker room",
+      "taub campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Randall Field",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "sports",
+    "description": "Baseball field on the Taub Campus; the athletics site also identifies the Marilyn & Fred Lummis Family Dugout.",
+    "lat": 29.739180070930868,
+    "lng": -95.43101877337345,
+    "tags": [
+      "randall field",
+      "baseball",
+      "diamond",
+      "lummis dugout",
+      "taub campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Taub Surface Parking Lot",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Surface parking lot serving the Taub Campus.",
+    "lat": 29.7413768730501,
+    "lng": -95.43043660566065,
+    "tags": [
+      "taub surface parking lot",
+      "taub parking",
+      "surface lot",
+      "parking",
+      "car"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Drop-off Circle",
+    "building": "North Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Main North Campus drop-off circle. Follow security and carpool signs during busy periods.",
+    "lat": 29.742999129308945,
+    "lng": -95.42863634787619,
+    "tags": [
+      "drop off",
+      "drop-off",
+      "carpool",
+      "visitor",
+      "main circle",
+      "gate 1",
+      "parking"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Senior Country",
+    "building": "Stude/Sarofim Learning Resource Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Upper School senior gathering area in the Learning Resource Center.",
+    "lat": 29.74236433386559,
+    "lng": -95.42913866901522,
+    "tags": [
+      "senior country",
+      "seniors",
+      "class 12",
+      "student lounge",
+      "upper school"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "The Quad Restrooms",
+    "building": "Farish Hall",
+    "floor": 0,
+    "category": "restroom",
+    "description": "Restrooms serving the northern side of The Quad. Floor and accessibility details should be confirmed on arrival.",
+    "lat": 29.74308095168216,
+    "lng": -95.42786118324858,
+    "tags": [
+      "the quad restrooms",
+      "quad bathroom",
+      "restroom",
+      "bathroom",
+      "toilet",
+      "wc",
+      "farish"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Mewbourne Restrooms",
+    "building": "Mewbourne Hall",
+    "floor": 0,
+    "category": "restroom",
+    "description": "Restrooms in Mewbourne Hall. Floor and accessibility details should be confirmed on arrival.",
+    "lat": 29.742348496146892,
+    "lng": -95.42983470737525,
+    "tags": [
+      "mewbourne restrooms",
+      "restroom",
+      "bathroom",
+      "toilet",
+      "wc",
+      "mewbourne hall"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "The Plaza",
+    "building": "North Campus",
+    "floor": 0,
+    "category": "facility",
+    "description": "Outdoor North Campus plaza and gathering area.",
+    "lat": 29.742732076142577,
+    "lng": -95.42866705280463,
+    "tags": [
+      "the plaza",
+      "plaza",
+      "outdoor",
+      "gathering",
+      "north campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Faculty Parking Entrance",
+    "building": "North Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Entrance to faculty parking on the North Campus. Access may be restricted to authorized vehicles.",
+    "lat": 29.74291672080774,
+    "lng": -95.42932821938203,
+    "tags": [
+      "faculty parking entrance",
+      "faculty parking",
+      "staff parking",
+      "entrance",
+      "parking"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "The Atrium",
+    "building": "North Campus",
+    "floor": 0,
+    "category": "facility",
+    "description": "North Campus atrium and interior gathering area.",
+    "lat": 29.742355789298948,
+    "lng": -95.42900648928345,
+    "tags": [
+      "the atrium",
+      "atrium",
+      "gathering",
+      "north campus",
+      "lobby"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Q101",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q101",
+      "q 101",
+      "classroom",
+      "farish hall",
+      "quad"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Q112",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q112",
+      "q 112",
+      "classroom",
+      "farish hall",
+      "quad"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Quad Restrooms",
+    "building": "Farish Hall",
+    "floor": 0,
+    "category": "restroom",
+    "description": "Restrooms serving the southern side of The Quad. Floor and accessibility details should be confirmed on arrival.",
+    "lat": 29.742497747584856,
+    "lng": -95.42788841400008,
+    "tags": [
+      "quad restrooms",
+      "quad bathroom",
+      "restroom",
+      "bathroom",
+      "toilet",
+      "wc",
+      "farish"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Fine Arts Tunnel Exit",
+    "building": "Westheimer Crossing",
+    "floor": 0,
+    "category": "facility",
+    "description": "North-side exit from the Western Passage / Fine Arts pedestrian tunnel beneath Westheimer Road.",
+    "lat": 29.742333245635404,
+    "lng": -95.4292220596861,
+    "tags": [
+      "fine arts tunnel exit",
+      "western passage",
+      "tunnel",
+      "exit",
+      "westheimer",
+      "pedestrian"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Senior Parking Lot",
+    "building": "South Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Parking lot designated for Upper School seniors. Eligibility and access rules may change by school year.",
+    "lat": 29.740382875715646,
+    "lng": -95.42935366668915,
+    "tags": [
+      "senior parking lot",
+      "senior parking",
+      "class 12",
+      "student parking",
+      "parking"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Reserved Parking Lot",
+    "building": "South Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Reserved South Campus parking area. Follow posted eligibility and permit signs.",
+    "lat": 29.741146654783652,
+    "lng": -95.42931200766088,
+    "tags": [
+      "reserved parking lot",
+      "reserved parking",
+      "permit parking",
+      "parking",
+      "south campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Parking Lot",
+    "building": "South Campus",
+    "floor": 0,
+    "category": "parking",
+    "description": "Parking lot at the southern edge of the mapped campus area. Follow posted access and event-parking signs.",
+    "lat": 29.737404947184043,
+    "lng": -95.42775289750801,
+    "tags": [
+      "parking lot",
+      "parking",
+      "car",
+      "south campus",
+      "event parking"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Gate 1",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 2401 Claremont Lane, Houston, TX 77019.",
+    "lat": 29.743064702891985,
+    "lng": -95.42992858323956,
+    "tags": [
+      "gate 1",
+      "entrance",
+      "campus gate",
+      "2401 claremont lane",
+      "77019"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Gate 2",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3334 Westheimer Road, Houston, TX 77098.",
+    "lat": 29.74220288857038,
+    "lng": -95.4282523287685,
+    "tags": [
+      "gate 2",
+      "entrance",
+      "campus gate",
+      "3334 westheimer road",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Gate 3",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3330 Westheimer Road, Houston, TX 77098.",
+    "lat": 29.74234950480617,
+    "lng": -95.42780340559234,
+    "tags": [
+      "gate 3",
+      "entrance",
+      "campus gate",
+      "3330 westheimer road",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Gate 4",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3333 Westheimer Road, Houston, TX 77098.",
+    "lat": 29.741999055886392,
+    "lng": -95.42811641624726,
+    "tags": [
+      "gate 4",
+      "entrance",
+      "campus gate",
+      "3333 westheimer road",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Gate 5",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 2600 Buffalo Speedway, Houston, TX 77098.",
+    "lat": 29.74151058771287,
+    "lng": -95.42988763585252,
+    "tags": [
+      "gate 5",
+      "entrance",
+      "campus gate",
+      "2600 buffalo speedway",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Gate 6",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 2700 Buffalo Speedway, Houston, TX 77098.",
+    "lat": 29.741096323237294,
+    "lng": -95.42987260868698,
+    "tags": [
+      "gate 6",
+      "entrance",
+      "campus gate",
+      "2700 buffalo speedway",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Gate 7",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 2727 Buffalo Speedway, Houston, TX 77098.",
+    "lat": 29.740601182383326,
+    "lng": -95.42975965180625,
+    "tags": [
+      "gate 7",
+      "entrance",
+      "campus gate",
+      "2727 buffalo speedway",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Gate 8",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3365 West Alabama Street, Houston, TX 77098.",
+    "lat": 29.73828291860132,
+    "lng": -95.42865689367198,
+    "tags": [
+      "gate 8",
+      "entrance",
+      "campus gate",
+      "3365 west alabama",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Gate 9",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3360 West Alabama Street, Houston, TX 77098.",
+    "lat": 29.738439673221233,
+    "lng": -95.4288719055632,
+    "tags": [
+      "gate 9",
+      "entrance",
+      "campus gate",
+      "3360 west alabama",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Gate 10",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3356 West Alabama Street, Houston, TX 77098.",
+    "lat": 29.738468519859683,
+    "lng": -95.42766809603869,
+    "tags": [
+      "gate 10",
+      "entrance",
+      "campus gate",
+      "3356 west alabama",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Gate 11",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3111 Buffalo Speedway, Houston, TX 77098.",
+    "lat": 29.737532304060615,
+    "lng": -95.42978505497688,
+    "tags": [
+      "gate 11",
+      "entrance",
+      "campus gate",
+      "3111 buffalo speedway",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Gate 12",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 2737 Buffalo Speedway, Houston, TX 77098.",
+    "lat": 29.74030221094638,
+    "lng": -95.42984632621209,
+    "tags": [
+      "gate 12",
+      "entrance",
+      "campus gate",
+      "2737 buffalo speedway",
+      "77098"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Gate 13",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3401 Westheimer Road, Houston, TX 77027.",
+    "lat": 29.741938451055642,
+    "lng": -95.4308207840878,
+    "tags": [
+      "gate 13",
+      "entrance",
+      "campus gate",
+      "3401 westheimer road",
+      "77027"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Gate 14",
+    "building": "Campus Gate",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus gate at 3401 Westheimer Road, Houston, TX 77027.",
+    "lat": 29.74111317568512,
+    "lng": -95.43017903668392,
+    "tags": [
+      "gate 14",
+      "entrance",
+      "campus gate",
+      "3401 westheimer road",
+      "77027"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "St. John’s Lower School",
+    "building": "St. John’s Lower School",
+    "floor": 0,
+    "category": "classroom",
+    "description": "Lower School academic building.",
+    "lat": 29.741722502065922,
+    "lng": -95.42871371915552,
+    "tags": [
+      "st john's lower school",
+      "lower school",
+      "elementary",
+      "classrooms"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Lower School Playground",
+    "building": "St. John’s Lower School",
+    "floor": 0,
+    "category": "facility",
+    "description": "Outdoor playground serving the Lower School.",
+    "lat": 29.74143249058356,
+    "lng": -95.42780516626358,
+    "tags": [
+      "lower school playground",
+      "playground",
+      "lower school",
+      "outdoor",
+      "play area"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Taub Lot Crosswalk",
+    "building": "Taub Campus",
+    "floor": 0,
+    "category": "facility",
+    "description": "Pedestrian crosswalk connecting the Taub area with the main campus across Buffalo Speedway.",
+    "lat": 29.740827465423234,
+    "lng": -95.43002684287652,
+    "tags": [
+      "taub lot crosswalk",
+      "crosswalk",
+      "pedestrian",
+      "buffalo speedway",
+      "taub campus"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "M101",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m101",
+      "m 101",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "M102",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m102",
+      "m 102",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "M103",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m103",
+      "m 103",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "M104",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m104",
+      "m 104",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "M105",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m105",
+      "m 105",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "M106",
+    "building": "Mewbourne",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m106",
+      "m 106",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "M201",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m201",
+      "m 201",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "M202",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m202",
+      "m 202",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "M203",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m203",
+      "m 203",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 115,
+    "name": "M204",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m204",
+      "m 204",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "M205",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m205",
+      "m 205",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 117,
+    "name": "M206",
+    "building": "Mewbourne",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m206",
+      "m 206",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "M301",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m301",
+      "m 301",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "M302",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m302",
+      "m 302",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "M303",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m303",
+      "m 303",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "M304",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m304",
+      "m 304",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 122,
+    "name": "M305",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m305",
+      "m 305",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 123,
+    "name": "M306",
+    "building": "Mewbourne",
+    "floor": 3,
+    "category": "classroom",
+    "description": "Indoor room in Mewbourne. Pin currently uses Mewbourne’s parent coordinate.",
+    "lat": 29.742329742803108,
+    "lng": -95.42958308327593,
+    "tags": [
+      "m306",
+      "m 306",
+      "mewbourne",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 124,
+    "name": "Q102",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q102",
+      "q 102",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Q103",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q103",
+      "q 103",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Q104",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q104",
+      "q 104",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Q105",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q105",
+      "q 105",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Q106",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q106",
+      "q 106",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "Q107",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q107",
+      "q 107",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Q108",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q108",
+      "q 108",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Q109",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q109",
+      "q 109",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "Q110",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q110",
+      "q 110",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "Q111",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q111",
+      "q 111",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "Q113",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q113",
+      "q 113",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Q114",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q114",
+      "q 114",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Q115",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q115",
+      "q 115",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Q116",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q116",
+      "q 116",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Q117",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q117",
+      "q 117",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Q118",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q118",
+      "q 118",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 140,
+    "name": "Q119",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q119",
+      "q 119",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Q120",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q120",
+      "q 120",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Q121",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q121",
+      "q 121",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Q122",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q122",
+      "q 122",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Q123",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q123",
+      "q 123",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Q124",
+    "building": "The Quad",
+    "floor": 1,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q124",
+      "q 124",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Q201",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q201",
+      "q 201",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 147,
+    "name": "Q202",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q202",
+      "q 202",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Q203",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q203",
+      "q 203",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Q204",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q204",
+      "q 204",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 150,
+    "name": "Q205",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q205",
+      "q 205",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 151,
+    "name": "Q206",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q206",
+      "q 206",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 152,
+    "name": "Q207",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q207",
+      "q 207",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 153,
+    "name": "Q208",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q208",
+      "q 208",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 154,
+    "name": "Q209",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q209",
+      "q 209",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 155,
+    "name": "Q210",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q210",
+      "q 210",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 156,
+    "name": "Q211",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q211",
+      "q 211",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 157,
+    "name": "Q212",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q212",
+      "q 212",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 158,
+    "name": "Q213",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q213",
+      "q 213",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Q214",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q214",
+      "q 214",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 160,
+    "name": "Q215",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q215",
+      "q 215",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 161,
+    "name": "Q216",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q216",
+      "q 216",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 162,
+    "name": "Q217",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q217",
+      "q 217",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 163,
+    "name": "Q218",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q218",
+      "q 218",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 164,
+    "name": "Q219",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q219",
+      "q 219",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 165,
+    "name": "Q220",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q220",
+      "q 220",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 166,
+    "name": "Q221",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q221",
+      "q 221",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 167,
+    "name": "Q222",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q222",
+      "q 222",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Q223",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q223",
+      "q 223",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 169,
+    "name": "Q224",
+    "building": "The Quad",
+    "floor": 2,
+    "category": "classroom",
+    "description": "Indoor room in The Quad. Pin currently uses The Quad’s parent coordinate.",
+    "lat": 29.74278847437649,
+    "lng": -95.42812542240259,
+    "tags": [
+      "q224",
+      "q 224",
+      "the quad",
+      "room",
+      "classroom"
+    ],
+    "visibility": "search-only",
+    "minZoom": null,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Avery-Glasgow Tunnel Entrance",
+    "building": "Westheimer Crossing",
+    "floor": 0,
+    "category": "facility",
+    "description": "Entrance to the Avery-Glasgow pedestrian tunnel beneath Westheimer Road.",
+    "lat": 29.741734985386294,
+    "lng": -95.42823495230519,
+    "tags": [
+      "avery glasgow tunnel entrance",
+      "avery-glasgow",
+      "tunnel",
+      "westheimer crossing",
+      "pedestrian"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 19,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 171,
+    "name": "Skip Lee Field and McMurrey Memorial Track",
+    "building": "South Campus Athletics",
+    "floor": 0,
+    "category": "sports",
+    "description": "Skip Lee Field and the surrounding McMurrey Memorial Track.",
+    "lat": 29.740485017280914,
+    "lng": -95.42846771525434,
+    "tags": [
+      "skip lee field",
+      "mcmurrey memorial track",
+      "track",
+      "field",
+      "athletics"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 172,
+    "name": "Owsley Court",
+    "building": "Athletic Facilities",
+    "floor": 0,
+    "category": "sports",
+    "description": "Competition court in the South Campus athletic facilities.",
+    "lat": 29.740360327872956,
+    "lng": -95.42776802396132,
+    "tags": [
+      "owsley court",
+      "basketball",
+      "volleyball",
+      "court",
+      "gym"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 173,
+    "name": "The Church of St. John the Divine",
+    "building": "The Church of St. John the Divine",
+    "floor": 0,
+    "category": "facility",
+    "description": "Adjacent church used for St. John’s School chapel services; it has its own access procedures.",
+    "lat": 29.74258840747072,
+    "lng": -95.42706013873794,
+    "tags": [
+      "church of st john the divine",
+      "st john the divine",
+      "church",
+      "chapel",
+      "service"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 17,
+    "directions": [
+      "walking",
+      "driving"
+    ]
+  },
+  {
+    "id": 174,
+    "name": "St. John's School",
+    "building": "St. John's School",
+    "floor": 0,
+    "category": "facility",
+    "description": "Campus-wide overview marker for St. John's School. Search for a specific gate when planning visitor arrival.",
+    "lat": 29.742729619050834,
+    "lng": -95.42875534676895,
+    "tags": [
+      "st john's school",
+      "saint john's school",
+      "sjs",
+      "overview marker",
+      "campus"
+    ],
+    "visibility": null,
+    "minZoom": 0,
+    "maxZoom": 16,
+    "directions": [
+      "walking"
+    ]
+  },
+  {
+    "id": 175,
+    "name": "Fine Arts Annex",
+    "building": "Virginia Stuller Tatham (VST) Fine Arts Center",
+    "floor": 0,
+    "category": "facility",
+    "description": "Fine Arts Annex associated with the VST Fine Arts Center.",
+    "lat": 29.741543518609266,
+    "lng": -95.42901167989953,
+    "tags": [
+      "fine arts annex",
+      "fine arts",
+      "arts",
+      "vst",
+      "annex"
+    ],
+    "visibility": "zoom-dependent",
+    "minZoom": 18,
+    "directions": [
+      "walking"
+    ]
+  }
+]

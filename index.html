@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Search buildings, rooms, parking, arts, dining, and athletic facilities at St. John's School in Houston."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Mav Maps</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div id="map" aria-label="Interactive map of St. John's School campus"></div>
+
+      <section class="toolbar" aria-label="Map search and filters">
+        <header class="toolbar-header">
+          <div class="toolbar-title">
+            <p class="toolbar-kicker">St. John's School</p>
+            <h1>Mav Maps</h1>
+          </div>
+          <div class="toolbar-actions">
+            <div class="search-row">
+              <button
+                id="search-toggle"
+                class="search-toggle"
+                type="button"
+                aria-label="Open campus search"
+                aria-controls="location-search"
+                aria-expanded="false"
+              >
+                <span class="search-icon" aria-hidden="true"></span>
+              </button>
+              <label class="sr-only" for="location-search">Search campus locations</label>
+              <input
+                id="location-search"
+                type="search"
+                placeholder="Search rooms, buildings, parking…"
+                autocomplete="off"
+                spellcheck="false"
+                aria-controls="search-results"
+                aria-expanded="false"
+              />
+              <button id="clear-search" class="clear-search" type="button" aria-label="Clear search" hidden>
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+
+            <!-- Official SJS seal from the school's public website assets. -->
+            <img
+              class="sjs-logo"
+              src="assets/sjs-seal.png"
+              alt="St. John's School seal"
+              width="52"
+              height="52"
+            />
+          </div>
+        </header>
+
+        <div
+          id="search-results"
+          class="search-results"
+          role="listbox"
+          aria-label="Matching campus locations"
+          hidden
+        ></div>
+
+        <div id="category-filters" class="filters" role="radiogroup" aria-label="Filter by category">
+          <button class="filter-button active" type="button" role="radio" aria-checked="true" data-category="all">All</button>
+          <button class="filter-button" type="button" role="radio" aria-checked="false" data-category="classroom">Classrooms</button>
+          <button class="filter-button" type="button" role="radio" aria-checked="false" data-category="restroom">Restrooms</button>
+          <button class="filter-button" type="button" role="radio" aria-checked="false" data-category="facility">Facilities</button>
+          <button class="filter-button" type="button" role="radio" aria-checked="false" data-category="sports">Sports</button>
+          <button class="filter-button" type="button" role="radio" aria-checked="false" data-category="parking">Parking</button>
+        </div>
+      </section>
+
+      <div id="map-status" class="map-status" role="status" aria-live="polite" hidden></div>
+
+      <button id="recenter-button" class="map-action" type="button" aria-label="Recenter map on your current location" hidden>
+        <span class="recenter-icon" aria-hidden="true"></span>
+      </button>
+    </main>
+
+    <!--
+      GOOGLE MAPS SETUP
+      1. Create and restrict a browser key in Google Cloud Console.
+      2. Enable Maps JavaScript API for that project.
+      3. Replace YOUR_API_KEY_HERE below. Never commit an unrestricted key.
+      See README.md for step-by-step setup and production restrictions.
+    -->
+    <script>
+      window.SJS_MAP_CONFIG = {
+        apiKey: "AIzaSyAhgQUDPocJpOmNBOQAoeifOVfIr2xkicE",
+        // AdvancedMarkerElement requires a map ID. DEMO_MAP_ID works for local
+        // evaluation; create your own map ID before a public production launch.
+        mapId: "DEMO_MAP_ID"
+      };
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+name: Deploy public MavMaps site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Prepare public site
+        run: |
+          mkdir -p public-site/css
+          mkdir -p public-site/js
+          mkdir -p public-site/data
+          mkdir -p public-site/assets
+
+          cp index.html public-site/
+          cp css/style.css public-site/css/
+          cp js/app.js public-site/js/
+          cp data/locations.json public-site/data/
+          cp assets/sjs-seal.png public-site/assets/
+
+          touch public-site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload public site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public-site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+

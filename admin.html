@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="description" content="Local administration and pedestrian-routing editor for Mav Maps." />
+    <meta name="theme-color" content="#7f1d1d" />
+    <title>MavMaps Admin Editor</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <div class="security-banner" role="note">
+        <strong>Internal map editor</strong>
+        <span>— do not deploy publicly without school approval and proper access control.</span>
+      </div>
+
+      <header class="admin-header">
+        <div class="brand-block">
+          <img src="assets/sjs-seal.png" alt="" width="36" height="36" />
+          <div>
+            <p>St. John’s School</p>
+            <h1>MavMaps Editor</h1>
+          </div>
+        </div>
+
+        <nav class="mode-toolbar" aria-label="Editing mode">
+          <button class="mode-button is-active" type="button" data-mode="select" title="Select objects (V)">
+            <span aria-hidden="true">↖</span> Select
+          </button>
+          <button class="mode-button" type="button" data-mode="add-location" title="Add location (L)">
+            <span aria-hidden="true">＋</span> Location
+          </button>
+          <button class="mode-button" type="button" data-mode="add-node" title="Add routing node (N)">
+            <span aria-hidden="true">●</span> Node
+          </button>
+          <button class="mode-button" type="button" data-mode="draw-path" title="Draw path (P)">
+            <span aria-hidden="true">⌁</span> Path
+          </button>
+          <button class="mode-button" type="button" data-mode="route-test" title="Test a route (R)">
+            <span aria-hidden="true">⇢</span> Route test
+          </button>
+        </nav>
+
+        <div class="history-toolbar" aria-label="History and map actions">
+          <button id="undo-button" class="icon-button" type="button" title="Undo (Ctrl/Cmd + Z)" disabled>↶</button>
+          <button id="redo-button" class="icon-button" type="button" title="Redo (Ctrl/Cmd + Shift + Z)" disabled>↷</button>
+          <button id="delete-button" class="icon-button danger" type="button" title="Delete selected item" disabled>⌫</button>
+          <button id="cancel-button" class="text-button" type="button" title="Cancel current operation (Escape)">Cancel</button>
+          <button id="finish-path-button" class="text-button primary" type="button" hidden>Finish path</button>
+          <button id="reset-view-button" class="icon-button" type="button" title="Reset campus view">⌂</button>
+        </div>
+      </header>
+
+      <section class="status-strip" aria-live="polite">
+        <div class="active-mode"><span class="status-dot"></span><strong id="active-mode-label">Select mode</strong></div>
+        <span id="operation-hint">Click a location, routing node, or path to edit it.</span>
+        <div class="status-spacer"></div>
+        <span id="count-summary">0 locations · 0 nodes · 0 edges</span>
+        <span id="save-state" class="save-state is-saved">Source loaded</span>
+      </section>
+
+      <main class="workspace">
+        <section class="map-panel" aria-label="Campus map editor">
+          <div id="admin-map" aria-label="Editable campus map"></div>
+          <div id="map-loading" class="map-message" role="status">
+            <strong>Loading MavMaps editor…</strong>
+            <span>Preparing locations and routing layers.</span>
+          </div>
+          <div id="toast-region" class="toast-region" aria-live="assertive"></div>
+          <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" title="Collapse sidebar">›</button>
+          <div class="map-legend" aria-label="Map legend">
+            <span><i class="legend-location"></i> Location</span>
+            <span><i class="legend-node"></i> Route node</span>
+            <span><i class="legend-edge"></i> Walkable edge</span>
+          </div>
+        </section>
+
+        <aside id="admin-sidebar" class="admin-sidebar">
+          <div id="draft-banner" class="draft-banner" hidden>
+            <div><strong>Newer local draft found</strong><span id="draft-time"></span></div>
+            <div class="inline-actions">
+              <button id="restore-draft-button" class="small-button primary" type="button">Restore</button>
+              <button id="discard-draft-button" class="small-button" type="button">Discard</button>
+            </div>
+          </div>
+
+          <div class="sidebar-tabs" role="tablist" aria-label="Editor panels">
+            <button class="sidebar-tab is-active" type="button" role="tab" aria-selected="true" data-panel="data">Data</button>
+            <button class="sidebar-tab" type="button" role="tab" aria-selected="false" data-panel="layers">Layers</button>
+            <button class="sidebar-tab" type="button" role="tab" aria-selected="false" data-panel="route">Route</button>
+            <button class="sidebar-tab" type="button" role="tab" aria-selected="false" data-panel="validate">Validate</button>
+            <button class="sidebar-tab" type="button" role="tab" aria-selected="false" data-panel="files">Files</button>
+          </div>
+
+          <section id="panel-data" class="sidebar-panel is-active" data-panel-content="data">
+            <div class="search-controls">
+              <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input id="admin-search" type="search" placeholder="Search locations, nodes, paths…" />
+              </label>
+              <div class="filter-row">
+                <select id="entity-filter" aria-label="Filter entity type">
+                  <option value="all">All records</option>
+                  <option value="location">Locations</option>
+                  <option value="node">Nodes</option>
+                  <option value="edge">Paths</option>
+                </select>
+                <select id="category-filter" aria-label="Filter category or visibility">
+                  <option value="all">All categories</option>
+                </select>
+              </div>
+            </div>
+            <div id="selection-summary" class="selection-summary">
+              <strong>Nothing selected</strong>
+              <span>Choose a record below or click an object on the map.</span>
+            </div>
+            <div id="record-list" class="record-list" aria-label="Editor records"></div>
+            <div id="editor-container" class="editor-container" hidden></div>
+          </section>
+
+          <section id="panel-layers" class="sidebar-panel" data-panel-content="layers" hidden>
+            <div class="panel-heading">
+              <h2>Map layers</h2>
+              <p>Control what is visible while editing. Hidden data never leaves the browser unless you export it.</p>
+            </div>
+            <div class="toggle-list">
+              <label><input type="checkbox" data-layer="locations" checked /> <span>Location markers</span></label>
+              <label><input type="checkbox" data-layer="nodes" checked /> <span>Routing nodes</span></label>
+              <label><input type="checkbox" data-layer="edges" checked /> <span>Routing edges</span></label>
+              <label><input type="checkbox" data-layer="nodeLabels" /> <span>Node labels</span></label>
+              <label><input type="checkbox" data-layer="edgeLabels" /> <span>Edge labels</span></label>
+              <label><input type="checkbox" data-layer="restricted" /> <span>Hidden / staff / restricted data</span></label>
+            </div>
+            <div class="panel-heading compact">
+              <h2>Map display</h2>
+            </div>
+            <label class="field-row"><span>Base map</span><select id="map-type-select"><option value="satellite">Satellite</option><option value="roadmap">Roadmap</option></select></label>
+          </section>
+
+          <section id="panel-route" class="sidebar-panel" data-panel-content="route" hidden>
+            <div class="panel-heading">
+              <h2>Route test</h2>
+              <p>Uses the local routing graph and Dijkstra’s shortest-path algorithm. No external routing service is used.</p>
+            </div>
+            <form id="route-form" class="editor-form">
+              <label>Start <select id="route-start" required><option value="">Choose a location or node</option></select></label>
+              <label>Destination <select id="route-destination" required><option value="">Choose a location or node</option></select></label>
+              <label class="check-field"><input id="route-accessible" type="checkbox" /> <span>Accessible route only</span></label>
+              <div class="form-actions">
+                <button id="reverse-route-button" class="small-button" type="button">Reverse</button>
+                <button class="small-button primary" type="submit">Calculate route</button>
+                <button id="clear-route-button" class="small-button" type="button">Clear</button>
+              </div>
+            </form>
+            <div id="route-result" class="route-result" hidden></div>
+          </section>
+
+          <section id="panel-validate" class="sidebar-panel" data-panel-content="validate" hidden>
+            <div class="panel-heading with-action">
+              <div><h2>Network validation</h2><p>Errors should be fixed before clean export. Warnings document conditions that need review.</p></div>
+              <button id="validate-button" class="small-button primary" type="button">Run</button>
+            </div>
+            <div id="validation-summary" class="validation-summary">Validation has not been run.</div>
+            <div id="validation-list" class="validation-list"></div>
+          </section>
+
+          <section id="panel-files" class="sidebar-panel" data-panel-content="files" hidden>
+            <div class="panel-heading">
+              <h2>Draft, import, and export</h2>
+              <p>Browsers cannot overwrite repository files. Export a download, review it, then replace the matching JSON file manually.</p>
+            </div>
+            <div class="file-section">
+              <h3>Local draft</h3>
+              <button id="save-draft-button" class="wide-button primary" type="button">Save local draft now</button>
+              <p id="draft-status" class="fine-print">Autosave is active on this browser.</p>
+            </div>
+            <div class="file-section">
+              <h3>Import JSON</h3>
+              <label class="field-row"><span>Import behavior</span><select id="import-mode"><option value="replace">Replace matching dataset</option><option value="merge">Merge by ID</option></select></label>
+              <div class="button-grid">
+                <button class="small-button" type="button" data-import="locations">Locations</button>
+                <button class="small-button" type="button" data-import="network">Routing network</button>
+                <button class="small-button" type="button" data-import="backup">Combined backup</button>
+              </div>
+              <input id="import-file" type="file" accept="application/json,.json" hidden />
+            </div>
+            <div class="file-section">
+              <h3>Export JSON</h3>
+              <div class="button-grid">
+                <button class="small-button" type="button" data-export="locations">locations.json</button>
+                <button class="small-button" type="button" data-export="network">routing-network.json</button>
+                <button class="small-button" type="button" data-export="backup">Combined backup</button>
+                <button class="small-button" type="button" data-export="geojson">GeoJSON</button>
+                <button class="small-button" type="button" data-export="public">Public-safe backup</button>
+              </div>
+              <p class="fine-print">“Public-safe” is only a convenience filter. It is not authentication or access control.</p>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="js/data-utils.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
