@@ -5,3 +5,5 @@ Thumbs.db
 .netlify/
 .idea/
 .vscode/
+
+data/routing-network.json
