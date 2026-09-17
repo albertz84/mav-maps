@@ -6,8 +6,8 @@
     "floor": 0,
     "category": "facility",
     "description": "The historic William Stamps Farish Quadrangle on the Cullen (North) Campus. Coordinate supplied by the school map maintainer.",
-    "lat": 29.74278847437649,
-    "lng": -95.42812542240259,
+    "lat": 29.74278847,
+    "lng": -95.42812542,
     "tags": [
       "quad",
       "quadrangle",
@@ -20,7 +20,12 @@
     "minZoom": 16,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": null,
+    "destinationNodeId": "node-path-end-23"
   },
   {
     "id": 6,
@@ -120,8 +125,8 @@
     "floor": 0,
     "category": "facility",
     "description": "Fine arts center commonly called VST; includes Lowe Theatre.",
-    "lat": 29.74154175861272,
-    "lng": -95.42965809836579,
+    "lat": 29.74154176,
+    "lng": -95.4296581,
     "tags": [
       "vst",
       "virginia stuller tatham",
@@ -134,7 +139,12 @@
     "minZoom": 16,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": null,
+    "destinationNodeId": "node-path-end-22"
   },
   {
     "id": 14,
@@ -1265,8 +1275,8 @@
     "floor": 0,
     "category": "facility",
     "description": "Campus gate at 3401 Westheimer Road, Houston, TX 77027.",
-    "lat": 29.74111317568512,
-    "lng": -95.43017903668392,
+    "lat": 29.74111318,
+    "lng": -95.43017904,
     "tags": [
       "gate 14",
       "entrance",
@@ -1279,7 +1289,12 @@
     "directions": [
       "walking",
       "driving"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": null,
+    "destinationNodeId": null
   },
   {
     "id": 103,
@@ -2805,8 +2820,8 @@
     "floor": 0,
     "category": "sports",
     "description": "Competition court in the South Campus athletic facilities.",
-    "lat": 29.740360327872956,
-    "lng": -95.42776802396132,
+    "lat": 29.74036033,
+    "lng": -95.42776802,
     "tags": [
       "owsley court",
       "basketball",
@@ -2818,7 +2833,12 @@
     "minZoom": 18,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": null,
+    "destinationNodeId": "node-path-end-18"
   },
   {
     "id": 173,

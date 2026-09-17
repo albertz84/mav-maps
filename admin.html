@@ -38,6 +38,7 @@
           <button class="mode-button" type="button" data-mode="draw-path" title="Draw path (P)">
             <span aria-hidden="true">⌁</span> Path
           </button>
+          <button class="mode-button" type="button" data-mode="freehand" title="Hold and drag to draw a path">Freehand</button>
           <button class="mode-button" type="button" data-mode="route-test" title="Test a route (R)">
             <span aria-hidden="true">⇢</span> Route test
           </button>
@@ -64,6 +65,7 @@
       <main class="workspace">
         <section class="map-panel" aria-label="Campus map editor">
           <div id="admin-map" aria-label="Editable campus map"></div>
+          <div id="freehand-surface" aria-label="Hold and drag to draw a walkway" hidden></div>
           <div id="map-loading" class="map-message" role="status">
             <strong>Loading MavMaps editor…</strong>
             <span>Preparing locations and routing layers.</span>

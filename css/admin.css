@@ -112,6 +112,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .workspace { display: flex; height: calc(100% - var(--banner-height) - var(--header-height) - var(--status-height)); }
 .map-panel { position: relative; flex: 1; min-width: 0; }
 #admin-map { width: 100%; height: 100%; }
+#freehand-surface { position: absolute; inset: 0; z-index: 6; cursor: crosshair; touch-action: none; }
 .admin-shell[data-mode="add-location"] #admin-map,
 .admin-shell[data-mode="add-node"] #admin-map,
 .admin-shell[data-mode="draw-path"] #admin-map { cursor: crosshair; }

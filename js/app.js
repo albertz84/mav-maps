@@ -39,6 +39,7 @@
     CollisionBehavior: null,
     locations: [],
     markers: new Map(),
+    selectedLocationId: null,
     activeCategory: "all",
     searchPanelExpanded: false,
     searchIsOpen: false,
@@ -47,6 +48,111 @@
     userPosition: null,
     geolocationWatchId: null
   };
+
+  // Only the explicitly published snapshot is loaded, never the editor's private graph.
+  let routingNetwork = null;
+  let routeLine = null;
+  let routePanel = null;
+
+  function routingNode(location) {
+    const id = location.destinationNodeId || location.arrivalNodeId;
+    return routingNetwork?.nodes.some((node) => String(node.id) === String(id)) ? id : null;
+  }
+
+  function clearCampusRoute() {
+    routeLine?.setMap(null);
+    routeLine = null;
+  }
+
+  function showCampusRoutePanel(destination) {
+    clearCampusRoute();
+    routePanel?.remove();
+    state.infoWindow.close();
+    const panel = document.createElement("section");
+    panel.className = "campus-route-panel";
+    panel.setAttribute("aria-label", "Campus walking route");
+    routePanel = panel;
+
+    const heading = document.createElement("h2");
+    heading.textContent = "Walk to " + destination.name;
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "route-close";
+    close.textContent = "×";
+    close.setAttribute("aria-label", "Close and clear walking route");
+    close.addEventListener("click", () => {
+      clearCampusRoute();
+      panel.remove();
+      routePanel = null;
+      elements.searchToggle.focus();
+    });
+    const form = document.createElement("form");
+    const label = document.createElement("label");
+    label.htmlFor = "route-start";
+    label.textContent = "Starting location";
+    const start = document.createElement("select");
+    start.id = "route-start";
+    const choices = state.locations.filter((location) =>
+      location.id !== destination.id && routingNode(location) != null
+    );
+    choices.sort((a, b) => a.name.localeCompare(b.name)).forEach((location) => {
+      const option = document.createElement("option");
+      option.value = String(location.id);
+      option.textContent = location.name;
+      start.append(option);
+    });
+    const submit = document.createElement("button");
+    submit.type = "submit";
+    submit.className = "directions-button";
+    submit.textContent = "Show walking route";
+    submit.disabled = !choices.length;
+    const result = document.createElement("p");
+    result.setAttribute("role", "status");
+    result.textContent = choices.length
+      ? "Only locations connected to campus paths are listed. Route preview, not live navigation."
+      : "No other locations have been connected to campus paths yet.";
+    form.append(label, start, submit);
+    panel.append(heading, close, form, result);
+    document.body.append(panel);
+    start.focus();
+
+    start.addEventListener("change", () => {
+      clearCampusRoute();
+      result.textContent = "Select Show walking route to update the route.";
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      clearCampusRoute();
+      const origin = choices.find((location) => String(location.id) === start.value);
+      if (!origin) return;
+      try {
+        const route = window.MavRouting.dijkstra(
+          routingNetwork, routingNode(origin), routingNode(destination)
+        );
+        if (!route.ok) {
+          result.textContent = route.error;
+          return;
+        }
+        routeLine = new google.maps.Polyline({
+          map: state.map, path: route.geometry,
+          strokeColor: "#2563eb", strokeOpacity: 1, strokeWeight: 6,
+          zIndex: 8000, clickable: false
+        });
+        const bounds = new google.maps.LatLngBounds();
+        route.geometry.forEach((point) => bounds.extend(point));
+        state.map.fitBounds(bounds, {
+          top: 100, right: 45, left: 45,
+          bottom: Math.ceil(panel.getBoundingClientRect().height) + 65
+        });
+        result.textContent = Math.round(route.totalDistance) + " m · About " +
+          Math.max(1, Math.ceil(route.totalDistance / 80)) +
+          " min walking. Follow the blue line between the mapped access points. Observe campus signs and closures.";
+      } catch (error) {
+        console.error(error);
+        result.textContent = "This campus route could not be calculated. Use Google walking directions instead.";
+      }
+    });
+  }
 
   function normalizeSearchText(value) {
     return String(value ?? "")
@@ -170,6 +276,10 @@
     });
 
     state.infoWindow = new InfoWindow({ maxWidth: 320 });
+    state.infoWindow.addListener("closeclick", () => {
+      state.selectedLocationId = null;
+      updateVisibleMarkers();
+    });
     createLocationMarkers();
     state.map.addListener("zoom_changed", updateVisibleMarkers);
     updateVisibleMarkers();
@@ -183,6 +293,12 @@
       if (["search-only", "event-only", "hidden"].includes(displayMode)) {
         return;
       }
+      createLocationMarker(location);
+    });
+  }
+
+  function createLocationMarker(location) {
+      const displayMode = markerDisplayMode(location);
 
       const content = document.createElement("div");
       content.className = "location-marker";
@@ -209,7 +325,7 @@
 
       marker.addListener("click", () => openLocation(location));
       state.markers.set(location.id, marker);
-    });
+      return marker;
   }
 
   function markerPriority(location) {
@@ -237,11 +353,25 @@
       }
       const minimumZoom = Number.isFinite(location.minZoom) ? location.minZoom : 18;
       const displayMode = markerDisplayMode(location);
+      const selected = state.selectedLocationId === location.id;
+      // Search-only rooms get one temporary label while selected, never a cloud
+      // of room markers. Closing the card restores normal display rules.
+      if (!selected && ["search-only", "event-only", "hidden"].includes(displayMode)) {
+        marker.map = null;
+        google.maps.event.clearInstanceListeners(marker);
+        state.markers.delete(location.id);
+        return;
+      }
+      marker.zIndex = selected ? 20000 : location.visibility === null ? 10000
+        : location.name === "Admissions Office" ? 9000 : markerPriority(location);
+      marker.collisionBehavior = selected || location.visibility === null || displayMode === "always"
+        ? state.CollisionBehavior.REQUIRED_AND_HIDES_OPTIONAL
+        : state.CollisionBehavior.OPTIONAL_AND_HIDES_LOWER_PRIORITY;
       const zoomAllowsMarker =
         location.visibility === null
           ? currentZoom < (Number.isFinite(location.maxZoom) ? location.maxZoom : 16)
           : displayMode === "always" || currentZoom >= minimumZoom;
-      marker.map = zoomAllowsMarker && locationMatches(location) ? state.map : null;
+      marker.map = selected || (zoomAllowsMarker && locationMatches(location)) ? state.map : null;
     });
   }
 
@@ -302,19 +432,18 @@
     renderSearchResults();
     updateVisibleMarkers();
     setSearchExpanded(false);
-    openLocation(location, true);
+    openLocation(location);
   }
 
-  function openLocation(location, focusMap = false) {
+  function openLocation(location) {
     if (!state.map || !state.infoWindow) {
       return;
     }
 
-    const marker = state.markers.get(location.id);
+    state.selectedLocationId = location.id;
+    const marker = state.markers.get(location.id) || createLocationMarker(location);
+    updateVisibleMarkers();
     state.map.panTo({ lat: location.lat, lng: location.lng });
-    if (focusMap) {
-      state.map.setZoom(Math.max(state.map.getZoom() || 17, 19));
-    }
 
     const content = buildInfoWindow(location);
     state.infoWindow.setContent(content);
@@ -365,6 +494,14 @@
       directionActions.append(directions);
     });
 
+    if (routingNode(location) != null && window.MavRouting) {
+      const campusDirections = document.createElement("button");
+      campusDirections.type = "button";
+      campusDirections.className = "directions-button";
+      campusDirections.textContent = "Campus walking route";
+      campusDirections.addEventListener("click", () => showCampusRoutePanel(location));
+      directionActions.prepend(campusDirections);
+    }
     wrapper.append(category, title, meta, description, directionActions);
     return wrapper;
   }
@@ -549,6 +686,18 @@
 
     try {
       await loadLocations();
+      try {
+        const response = await fetch("data/public-routing-network.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("Campus routing data is unavailable.");
+        const network = await response.json();
+        if (!Array.isArray(network.nodes) || !Array.isArray(network.edges)) {
+          throw new Error("Invalid campus routing data.");
+        }
+        routingNetwork = network;
+      } catch (error) {
+        // Optional feature: map, search and Google directions still work.
+        console.warn("Campus routes unavailable:", error);
+      }
     } catch (error) {
       console.error(error);
       setStatus(

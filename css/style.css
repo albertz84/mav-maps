@@ -547,6 +547,9 @@ button {
 }
 
 .directions-button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
   display: inline-flex;
   min-height: 36px;
   align-items: center;
@@ -663,6 +666,49 @@ button {
     right: 14px;
     bottom: max(18px, env(safe-area-inset-bottom));
   }
+}
+
+.campus-route-panel {
+  position: absolute;
+  z-index: 20;
+  left: 12px;
+  bottom: 48px;
+  width: min(350px, calc(100vw - 80px));
+  max-height: 55vh;
+  overflow: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 24px #0003;
+}
+
+.campus-route-panel h2 {
+  margin: 0 25px 12px 0;
+  font-size: 16px;
+}
+
+.campus-route-panel form { display: grid; gap: 8px; }
+.campus-route-panel label, .campus-route-panel p { font-size: 13px; }
+.campus-route-panel p { margin: 12px 0 0; line-height: 1.45; }
+.campus-route-panel select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+.route-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {

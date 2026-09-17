@@ -11,10 +11,12 @@
     facility: "#D97706", sports: "#16A34A", parking: "#6B7280", dining: "#EA580C"
   };
   const MODE_LABELS = {
+    freehand: "Freehand path mode",
     select: "Select mode", "add-location": "Add Location mode", "add-node": "Add Node mode",
     "draw-path": "Draw Path mode", "route-test": "Route Test mode"
   };
   const MODE_HINTS = {
+    freehand: "Hold and drag to trace a walkway, then release to save. Use Select to pan or zoom.",
     select: "Click a location, routing node, or path to edit it.",
     "add-location": "Click the map to capture coordinates and create a location.",
     "add-node": "Click the map to create a routing node.",
@@ -49,6 +51,7 @@
   };
 
   const state = {
+    freehandStroke: null,
     map: null, AdvancedMarkerElement: null, CollisionBehavior: null,
     locations: [], network: { version: 1, nodes: [], edges: [] },
     sourceLoadedAt: 0, dirty: false, mode: "select", selected: null, pending: null,
@@ -187,7 +190,81 @@
     });
     state.map.addListener("click", handleMapClick);
     state.map.addListener("mousemove", handleMapMouseMove);
+    bindFreehandDrawing();
     renderAll(); hideMapMessage();
+  }
+
+  // A transparent input surface keeps tracing from dragging the base map.
+  // Google's projection converts screen points at the current zoom to coordinates.
+  function bindFreehandDrawing() {
+    const surface = document.querySelector("#freehand-surface");
+    const overlay = new google.maps.OverlayView();
+    let projection = null;
+    overlay.onAdd = () => {};
+    overlay.onRemove = () => { projection = null; };
+    overlay.draw = () => { projection = overlay.getProjection(); };
+    overlay.setMap(state.map);
+
+    function pointFromEvent(event) {
+      const rect = elements.map.getBoundingClientRect();
+      const x = Math.max(0, Math.min(rect.width, event.clientX - rect.left));
+      const y = Math.max(0, Math.min(rect.height, event.clientY - rect.top));
+      const position = projection?.fromContainerPixelToLatLng(new google.maps.Point(x, y));
+      return position ? { x, y, position: position.toJSON() } : null;
+    }
+
+    surface.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || state.freehandStroke || state.drawing?.readyToSave) return;
+      const point = pointFromEvent(event);
+      if (!point) return;
+      event.preventDefault();
+      surface.setPointerCapture(event.pointerId);
+      state.lastPointer = null;
+      // Reuse the click tool's start-node creation and snapping.
+      addMapPointToDrawing(point.position);
+      elements.operationHint.textContent = MODE_HINTS.freehand;
+      state.freehandStroke = { pointerId: event.pointerId, last: point, travel: 0 };
+    });
+
+    surface.addEventListener("pointermove", (event) => {
+      const stroke = state.freehandStroke;
+      if (!stroke || event.pointerId !== stroke.pointerId) return;
+      const point = pointFromEvent(event);
+      if (!point) return;
+      const distance = Math.hypot(point.x - stroke.last.x, point.y - stroke.last.y);
+      // Sampling every six pixels avoids storing every tiny hand movement.
+      if (distance < 6) return;
+      stroke.travel += distance;
+      stroke.last = point;
+      state.drawing.points.push(point.position);
+      setSnapCandidate(nearestNode(point.position, snapThresholdMeters()));
+      if (state.previewPolyline) state.previewPolyline.setPath(state.drawing.points);
+    });
+
+    surface.addEventListener("pointerup", (event) => {
+      const stroke = state.freehandStroke;
+      if (!stroke || event.pointerId !== stroke.pointerId) return;
+      const point = pointFromEvent(event);
+      state.freehandStroke = null;
+      if (surface.hasPointerCapture(event.pointerId)) surface.releasePointerCapture(event.pointerId);
+      if (point) {
+        stroke.travel += Math.hypot(point.x - stroke.last.x, point.y - stroke.last.y);
+        if (Data.haversineMeters(state.drawing.points.at(-1), point.position) > 0.01) state.drawing.points.push(point.position);
+      }
+      if (stroke.travel < 12 || Data.polylineLength(state.drawing.points) < 0.5) {
+        cancelCurrentOperation(false);
+        showToast("Stroke too short. Hold and drag to trace a walkway.");
+        return;
+      }
+      setSnapCandidate(null);
+      finishDrawing();
+      renderAll();
+    });
+
+    const cancelStroke = () => { if (state.freehandStroke) cancelCurrentOperation(false); };
+    surface.addEventListener("pointercancel", cancelStroke);
+    surface.addEventListener("lostpointercapture", cancelStroke);
+    window.addEventListener("blur", cancelStroke);
   }
 
   function clearOverlayListeners() {
@@ -298,6 +375,7 @@
   }
 
   function renderAll() {
+    document.querySelector("#freehand-surface").hidden = !state.map || state.mode !== "freehand" || Boolean(state.drawing?.readyToSave);
     if (!state.map) { renderEditorState(); return; }
     clearOverlays();
     state.network.edges.forEach(addEdgePolyline);
@@ -539,6 +617,10 @@
   function updateSelectionControls() { elements.delete.disabled = !state.selected; }
 
   function cancelCurrentOperation(showNotice = true) {
+    const stroke = state.freehandStroke;
+    state.freehandStroke = null;
+    const surface = document.querySelector("#freehand-surface");
+    if (stroke && surface.hasPointerCapture(stroke.pointerId)) surface.releasePointerCapture(stroke.pointerId);
     const hadOperation = Boolean(state.pending || state.drawing || state.assignmentField);
     state.pending = null; state.drawing = null; state.assignmentField = null; setSnapCandidate(null); state.lastPointer = null;
     if (state.previewPolyline) { state.previewPolyline.setMap(null); state.previewPolyline = null; }
@@ -940,6 +1022,7 @@
       } else Object.assign(original, updated);
       state.drawing = null; state.pending = null; state.selected = { type: "edge", id };
     });
+    setMode("select");
     openEdgeEditor(findEdge(id)); focusRecord("edge", id); showToast(`${updated.name || id} saved.`);
   }
 

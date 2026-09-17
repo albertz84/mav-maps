@@ -46,7 +46,17 @@ The project includes an unlinked internal editor at `http://localhost:8000/admin
 
 Read [ADMIN_EDITOR.md](ADMIN_EDITOR.md) before using it. The editor is a development tool, not an authentication system. An unlisted URL is not secure. Do **not** publicly deploy `admin.html` or a detailed internal `data/routing-network.json` without school approval and real school-controlled access restrictions.
 
-The repository’s initial routing network is deliberately empty; no campus paths have been fabricated.
+The local editor network contains maintainer-drawn paths. The public app uses a separate, explicitly published snapshot, not the local editor file.
+
+### Public campus walking routes
+
+Open a connected location's popup, select **Campus walking route**, choose a starting location, and click **Show walking route**. A blue line shows the shortest route with approximate distance and walking time. Close the panel to clear it. Existing Google walking/driving directions remain available.
+
+Currently The Quad, VST Fine Arts Center, and Owsley Court have routing-node assignments. To support another location, assign its destination (or arrival) node in the editor and export the updated locations. No straight-line shortcuts to unconnected buildings are invented.
+
+The public app loads `data/public-routing-network.json` and reuses `js/routing.js`. This snapshot contains the current maintainer-provided paths. After editing, export the network, review it for public release, and deliberately replace `data/public-routing-network.json` with that export. Replace `data/locations.json` with the corresponding location export. The Pages workflow includes both public files; the admin page and local `routing-network.json` remain excluded.
+
+Everything in the public snapshot is downloadable, regardless of its visibility metadata. Only publish paths approved for public sharing by the school. This is a basic route preview, not live GPS navigation, indoor positioning, or a guarantee that paths are accessible or currently open. It respects recorded one-way directions and closed edges, but does not receive live closure updates. Routes end at assigned access nodes, not necessarily exact room coordinates. If routing data fails to load, the normal map and Google directions still work.
 
 ## Get a Google Maps API key
 

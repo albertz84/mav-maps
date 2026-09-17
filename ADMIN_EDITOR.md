@@ -79,6 +79,10 @@ Deleting a connected node warns that its edges will also be deleted. Location re
 
 ## Draw and edit paths
 
+For quick tracing, choose **Freehand**, hold the mouse button and drag along a walkway, then release. Review the existing path form and choose **Add path**. The editor creates endpoint nodes automatically and uses the same endpoint snapping and junction prompt as the click-based Path tool. Each saved stroke is one undoable action and remains editable with vertex handles.
+
+Freehand samples points every six screen pixels; it does not automatically smooth or interpret the route. Tiny strokes are discarded. Escape cancels an unfinished stroke. Switch to **Select** to pan or zoom before drawing another stroke. The existing **Path** button still supports precise point-by-point drawing.
+
 1. Choose **Path** mode.
 2. Click an existing node, or click open map space to make an unsaved start node.
 3. Click intermediate geometry points.

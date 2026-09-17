@@ -6,6 +6,18 @@ import { readFile } from "node:fs/promises";
 
 const require = createRequire(import.meta.url);
 const Routing = require("../js/routing.js");
+const publicNetwork = JSON.parse(await readFile(new URL("../data/public-routing-network.json", import.meta.url), "utf8"));
+const publicLocations = JSON.parse(await readFile(new URL("../data/locations.json", import.meta.url), "utf8"));
+const connectedLocations = publicLocations.filter((location) => location.destinationNodeId || location.arrivalNodeId);
+for (const origin of connectedLocations) {
+  for (const destination of connectedLocations) {
+    const route = Routing.dijkstra(publicNetwork,
+      origin.destinationNodeId || origin.arrivalNodeId,
+      destination.destinationNodeId || destination.arrivalNodeId);
+    assert.equal(route.ok, true, origin.name + " → " + destination.name);
+  }
+}
+console.log("✓ Published routes between all assigned campus locations");
 const Data = require("../js/data-utils.js");
 
 const nodes = [
@@ -92,9 +104,12 @@ assert.deepEqual(JSON.parse(JSON.stringify(stable)), stable, "exported network m
 const locations = JSON.parse(await readFile(new URL("../data/locations.json", import.meta.url), "utf8"));
 const routingFile = JSON.parse(await readFile(new URL("../data/routing-network.json", import.meta.url), "utf8"));
 assert.ok(Array.isArray(locations) && locations.length > 0);
-assert.deepEqual(Data.normalizeNetwork(routingFile), { version: 1, nodes: [], edges: [] });
+assert.equal(routingFile.version, 1);
+assert.ok(Array.isArray(routingFile.nodes) && Array.isArray(routingFile.edges));
+const sourceValidation = Data.validateEditorData(locations, routingFile);
+assert.equal(sourceValidation.errors, 0, JSON.stringify(sourceValidation.issues));
 
 console.log("✓ Dijkstra shortest-path, reverse geometry, and instructions");
 console.log("✓ One-way, closed-edge, accessible, stairs, and no-route behavior");
 console.log("✓ Cost multipliers, geometry helpers, validation, and JSON round-trip");
-console.log(`✓ Admin source data loads ${locations.length} locations and an empty non-fabricated route network`);
+console.log(`✓ Admin source data loads ${locations.length} locations, ${routingFile.nodes.length} nodes, and ${routingFile.edges.length} paths (${sourceValidation.warnings} warnings)`);
