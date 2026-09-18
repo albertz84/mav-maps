@@ -947,63 +947,6 @@
       "costMultiplier": 1
     },
     {
-      "id": "edge-new-path-junction-part-2",
-      "name": "",
-      "from": "node-path-start-6",
-      "to": "node-path-end",
-      "type": "walkway",
-      "bidirectional": true,
-      "accessible": true,
-      "visibility": "community",
-      "status": "open",
-      "lengthMeters": 28.314741160661722,
-      "geometry": [
-        {
-          "lat": 29.74080683546983,
-          "lng": -95.4301163508901
-        },
-        {
-          "lat": 29.74081303235,
-          "lng": -95.43009496505512
-        },
-        {
-          "lat": 29.74081969155985,
-          "lng": -95.43006007538317
-        },
-        {
-          "lat": 29.740821601988824,
-          "lng": -95.4300279307845
-        },
-        {
-          "lat": 29.740821601988824,
-          "lng": -95.42999201432941
-        },
-        {
-          "lat": 29.740821601988824,
-          "lng": -95.42995475676982
-        },
-        {
-          "lat": 29.740825004371747,
-          "lng": -95.42991881935997
-        },
-        {
-          "lat": 29.740825786737872,
-          "lng": -95.42988577370672
-        },
-        {
-          "lat": 29.740825786737872,
-          "lng": -95.4298525604154
-        },
-        {
-          "lat": 29.74082252991145,
-          "lng": -95.42982563355146
-        }
-      ],
-      "instructionForward": "",
-      "instructionReverse": "",
-      "costMultiplier": 1
-    },
-    {
       "id": "edge-new-path-10",
       "name": "",
       "from": "node-path-end-8",
@@ -7314,6 +7257,63 @@
         {
           "lat": 29.74133414,
           "lng": -95.4292697
+        }
+      ],
+      "instructionForward": "",
+      "instructionReverse": "",
+      "costMultiplier": 1
+    },
+    {
+      "id": "edge-new-path-junction-part-2",
+      "name": "",
+      "from": "node-path-start-6",
+      "to": "node-path-end",
+      "type": "walkway",
+      "bidirectional": true,
+      "accessible": true,
+      "visibility": "community",
+      "status": "open",
+      "lengthMeters": 28.314741160661722,
+      "geometry": [
+        {
+          "lat": 29.74080683546983,
+          "lng": -95.4301163508901
+        },
+        {
+          "lat": 29.74081303235,
+          "lng": -95.43009496505512
+        },
+        {
+          "lat": 29.74081969155985,
+          "lng": -95.43006007538317
+        },
+        {
+          "lat": 29.740821601988824,
+          "lng": -95.4300279307845
+        },
+        {
+          "lat": 29.740821601988824,
+          "lng": -95.42999201432941
+        },
+        {
+          "lat": 29.740821601988824,
+          "lng": -95.42995475676982
+        },
+        {
+          "lat": 29.740825004371747,
+          "lng": -95.42991881935997
+        },
+        {
+          "lat": 29.740825786737872,
+          "lng": -95.42988577370672
+        },
+        {
+          "lat": 29.740825786737872,
+          "lng": -95.4298525604154
+        },
+        {
+          "lat": 29.74082252991145,
+          "lng": -95.42982563355146
         }
       ],
       "instructionForward": "",
