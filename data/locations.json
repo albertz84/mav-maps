@@ -102,8 +102,8 @@
     "floor": 0,
     "category": "facility",
     "description": "South-side entrance to the Western Passage / Fine Arts pedestrian tunnel beneath Westheimer Road.",
-    "lat": 29.74165196105179,
-    "lng": -95.42924199841801,
+    "lat": 29.74165196,
+    "lng": -95.429242,
     "tags": [
       "western passage",
       "fine arts tunnel",
@@ -116,7 +116,12 @@
     "minZoom": 19,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-path-end-8",
+    "destinationNodeId": "node-path-end-8"
   },
   {
     "id": 13,
@@ -244,8 +249,8 @@
     "floor": 0,
     "category": "office",
     "description": "College Counseling Office in the Campus Center. Interior position is approximate.",
-    "lat": 29.742918808665642,
-    "lng": -95.42907815397925,
+    "lat": 29.74291881,
+    "lng": -95.42907815,
     "tags": [
       "college counseling",
       "counselor",
@@ -257,7 +262,12 @@
     "minZoom": 18,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-new-2",
+    "destinationNodeId": "node-new-2"
   },
   {
     "id": 29,
@@ -289,8 +299,8 @@
     "floor": 0,
     "category": "facility",
     "description": "Assembly and event hall in the Campus Center; current school calendars use location code CCChaoHall.",
-    "lat": 29.742917658465696,
-    "lng": -95.4290722755249,
+    "lat": 29.74291766,
+    "lng": -95.42907228,
     "tags": [
       "chao family assembly hall",
       "chao hall",
@@ -303,7 +313,12 @@
     "minZoom": 17,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-new-2",
+    "destinationNodeId": "node-new-2"
   },
   {
     "id": 40,
@@ -749,8 +764,8 @@
     "floor": 0,
     "category": "facility",
     "description": "Outdoor North Campus plaza and gathering area.",
-    "lat": 29.742732076142577,
-    "lng": -95.42866705280463,
+    "lat": 29.74273208,
+    "lng": -95.42866705,
     "tags": [
       "the plaza",
       "plaza",
@@ -762,7 +777,12 @@
     "minZoom": 17,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-path-end-14",
+    "destinationNodeId": "node-path-end-14"
   },
   {
     "id": 80,
@@ -907,8 +927,8 @@
     "floor": 0,
     "category": "parking",
     "description": "Parking lot designated for Upper School seniors. Eligibility and access rules may change by school year.",
-    "lat": 29.740382875715646,
-    "lng": -95.42935366668915,
+    "lat": 29.74038288,
+    "lng": -95.42935367,
     "tags": [
       "senior parking lot",
       "senior parking",
@@ -921,7 +941,12 @@
     "directions": [
       "walking",
       "driving"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-path-start-4",
+    "destinationNodeId": "node-path-start-4"
   },
   {
     "id": 87,
@@ -2893,8 +2918,8 @@
     "floor": 0,
     "category": "facility",
     "description": "Fine Arts Annex associated with the VST Fine Arts Center.",
-    "lat": 29.741543518609266,
-    "lng": -95.42901167989953,
+    "lat": 29.74154352,
+    "lng": -95.42901168,
     "tags": [
       "fine arts annex",
       "fine arts",
@@ -2906,6 +2931,11 @@
     "minZoom": 18,
     "directions": [
       "walking"
-    ]
+    ],
+    "accessVisibility": "public",
+    "markerDisplay": "zoom-dependent",
+    "parentId": null,
+    "arrivalNodeId": "node-path-start-5",
+    "destinationNodeId": "node-path-start-5"
   }
 ]

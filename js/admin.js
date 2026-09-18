@@ -422,6 +422,8 @@
     state.overlayListeners.push(marker.addListener("dragend", (event) => {
       if (!event.latLng || !before) return;
       moveNodeInData(node.id, event.latLng.toJSON(), true);
+      const connectedId = connectSavedNode(node.id);
+      state.selected = { type: "node", id: connectedId };
       recordHistory(before, `move node ${node.name || node.id}`); renderEditorState(); renderAll();
     }));
   }
@@ -717,13 +719,10 @@
           <label>Minimum zoom<input name="minZoom" type="number" min="0" max="22" step="1" /></label>
           <label>Directions<select name="directions"><option value="walking">Walking</option><option value="walking,driving">Walking + driving</option></select></label>
         </div>
-        <div class="form-grid">
-          <label>Arrival routing node<select name="arrivalNodeId"></select></label>
-          <label>Destination routing node<select name="destinationNodeId"></select></label>
-        </div>
+        <label>Routing node<select name="routingNodeId"></select></label>
+        <p class="form-note">Used for both arrival and destination. Save changes to keep the assignment.</p>
         <div class="inline-actions">
-          <button class="small-button assign-button" type="button" data-assign-node="arrivalNodeId">Assign arrival on map</button>
-          <button class="small-button assign-button" type="button" data-assign-node="destinationNodeId">Assign destination on map</button>
+          <button class="small-button assign-button" type="button" data-assign-node="routingNodeId">Assign routing node on map</button>
         </div>
         <div class="form-actions">
           ${isNew ? "" : '<button class="small-button" type="button" data-duplicate>Duplicate</button>'}
@@ -746,8 +745,8 @@
     const parentOptions = state.locations.filter((item) => String(item.id) !== String(location.id)).map((item) => ({ value: item.id, label: `${item.name} · ${item.id}` }));
     createSelectOptions(form.elements.parentId, parentOptions, location.parentId, true);
     const nodeOptions = state.network.nodes.map((node) => ({ value: node.id, label: `${node.name || node.id} · L${node.level}` }));
-    createSelectOptions(form.elements.arrivalNodeId, nodeOptions, location.arrivalNodeId, true);
-    createSelectOptions(form.elements.destinationNodeId, nodeOptions, location.destinationNodeId, true);
+    // Prefer the node already used by route testing for legacy assignments.
+    createSelectOptions(form.elements.routingNodeId, nodeOptions, location.destinationNodeId || location.arrivalNodeId, true);
     form.addEventListener("submit", (event) => { event.preventDefault(); saveLocationForm(form, location, isNew); });
     elements.editor.querySelector("[data-cancel-form]").addEventListener("click", () => isNew ? cancelCurrentOperation() : openLocationEditor(location, false));
     elements.editor.querySelector("[data-focus-record]").addEventListener("click", () => { state.map.panTo({ lat: Number(form.elements.lat.value), lng: Number(form.elements.lng.value) }); state.map.setZoom(20); });
@@ -755,7 +754,7 @@
     elements.editor.querySelector("[data-delete-record]")?.addEventListener("click", deleteSelected);
     elements.editor.querySelectorAll("[data-assign-node]").forEach((button) => button.addEventListener("click", () => {
       state.assignmentField = button.dataset.assignNode; elements.editor.querySelectorAll(".assign-button").forEach((item) => item.classList.toggle("is-active", item === button));
-      elements.operationHint.textContent = `Click a routing node to assign ${button.dataset.assignNode === "arrivalNodeId" ? "arrival" : "destination"}.`;
+      elements.operationHint.textContent = "Click a routing node to use for both arrival and destination.";
       showToast("Node assignment active. Click a blue routing node on the map.");
     }));
     window.requestAnimationFrame(() => form.elements.name.focus());
@@ -777,8 +776,8 @@
       accessVisibility: form.elements.accessVisibility.value, markerDisplay,
       visibility: markerDisplay, minZoom: form.elements.minZoom.value === "" ? null : Number(form.elements.minZoom.value),
       directions: form.elements.directions.value.split(","),
-      parentId: form.elements.parentId.value || null, arrivalNodeId: form.elements.arrivalNodeId.value || null,
-      destinationNodeId: form.elements.destinationNodeId.value || null
+      parentId: form.elements.parentId.value || null, arrivalNodeId: form.elements.routingNodeId.value || null,
+      destinationNodeId: form.elements.routingNodeId.value || null
     };
     if (markerDisplay === "search-only" || markerDisplay === "hidden") updated.minZoom = null;
     if (markerDisplay === "always") updated.minZoom = 0;
@@ -836,11 +835,19 @@
     window.requestAnimationFrame(() => form.elements.name.focus());
   }
 
+  function connectSavedNode(id) {
+    const report = Data.connectNearbyPaths(state.network, state.locations);
+    while (Object.prototype.hasOwnProperty.call(report.mergedNodeIds, id)) id = report.mergedNodeIds[id];
+    clearRoute();
+    return id;
+  }
+
   function saveNodeForm(form, original, isNew) {
     const id = form.elements.id.value.trim(); const lat = Number(form.elements.lat.value); const lng = Number(form.elements.lng.value); const level = Number(form.elements.level.value);
     if (!id || !Number.isFinite(lat) || !Number.isFinite(lng) || !Number.isInteger(level)) { showToast("Node ID, coordinates, and integer level are required.", "error"); return; }
     if (state.network.nodes.some((item) => String(item.id) === id && item !== original)) { showToast(`Node ID ${id} is already in use.`, "error"); return; }
     const oldId = String(original.id);
+    let connectedId = id;
     const updated = { ...original, id, name: form.elements.name.value.trim(), lat, lng, level, type: form.elements.type.value,
       accessible: form.elements.accessible.checked, visibility: form.elements.visibility.value,
       intentionallyIsolated: form.elements.intentionallyIsolated.checked };
@@ -854,9 +861,10 @@
         }
         moveNodeInData(id, updated);
       }
-      state.pending = null; state.selected = { type: "node", id };
+      connectedId = connectSavedNode(id);
+      state.pending = null; state.selected = { type: "node", id: connectedId };
     });
-    openNodeEditor(findNode(id), false); focusRecord("node", id); showToast(`${updated.name || id} saved.`);
+    openNodeEditor(findNode(connectedId), false); focusRecord("node", connectedId); showToast(`${updated.name || id} saved and nearby paths connected.`);
   }
 
   function startDrawingAtNode(node, temporary = false) {
@@ -892,14 +900,9 @@
         state.drawing.points[state.drawing.points.length - 1] = { lat: snap.lat, lng: snap.lng };
         state.drawing.endNodeId = snap.id;
       } else {
-        const edgeHit = nearestEdgePoint(lastPoint, snapThresholdMeters());
-        if (edgeHit && window.confirm(`Create a junction on “${edgeHit.edge.name || edgeHit.edge.id}” and split that path?\n\nChoose Cancel to create a separate endpoint instead.`)) {
-          const id = Data.uniqueStringId("node", "junction", [...state.network.nodes, ...state.drawing.pendingNodes]);
-          const node = { id, name: "Path junction", lat: edgeHit.point.lat, lng: edgeHit.point.lng, level: Number(findNode(edgeHit.edge.from)?.level) || 0,
-            type: "intersection", accessible: edgeHit.edge.accessible !== false, visibility: edgeHit.edge.visibility || "community" };
-          state.drawing.pendingNodes.push(node); state.drawing.pendingSplit = { ...edgeHit, nodeId: id };
-          state.drawing.points[state.drawing.points.length - 1] = edgeHit.point; state.drawing.endNodeId = id;
-        } else {
+        // Connections are resolved atomically on save, after type/access metadata
+        // is known, using the same 2 m tolerance as intermediate crossings.
+        {
           const id = Data.uniqueStringId("node", "path-end", [...state.network.nodes, ...state.drawing.pendingNodes]);
           const node = { id, name: "Path end", lat: lastPoint.lat, lng: lastPoint.lng, level: 0, type: "intersection", accessible: true, visibility: "community" };
           state.drawing.pendingNodes.push(node); state.drawing.endNodeId = id;
@@ -964,6 +967,7 @@
         <div class="form-grid"><label class="check-field"><input name="bidirectional" type="checkbox" /><span>Bidirectional</span></label><label class="check-field"><input name="accessible" type="checkbox" /><span>Accessible</span></label></div>
         <label>Forward instruction<textarea name="instructionForward" placeholder="Optional instruction"></textarea></label>
         <label>Reverse instruction<textarea name="instructionReverse" placeholder="Optional instruction"></textarea></label>
+        <label class="check-field"><input name="autoConnect" type="checkbox" checked /><span>Connect nearby outdoor paths (2 m, same level/access). Uncheck for bridges or separated paths.</span></label>
         <div class="selection-summary"><strong>Calculated length</strong><span data-edge-length>${Number(edge.lengthMeters || 0).toFixed(1)} m</span></div>
         <div class="inline-actions">
           ${isNew ? "" : '<button class="small-button" type="button" data-reverse-edge>Reverse direction</button>'}
@@ -1007,7 +1011,7 @@
       costMultiplier: Number(form.elements.costMultiplier.value) || 1,
       geometry, lengthMeters: Data.polylineLength(geometry), instructionForward: form.elements.instructionForward.value.trim(),
       instructionReverse: form.elements.instructionReverse.value.trim() };
-    if (detectCrossings(updated, isNew ? null : original.id).length) {
+    if (!form.elements.autoConnect.checked && detectCrossings(updated, isNew ? null : original.id).length) {
       const proceed = window.confirm("This path crosses an existing path without a shared node. Save it disconnected and review the crossing in Validation?\n\nChoose Cancel to keep editing.");
       if (!proceed) return;
     }
@@ -1020,6 +1024,10 @@
         }
         state.network.edges.push(updated);
       } else Object.assign(original, updated);
+      if (form.elements.autoConnect.checked) {
+        Data.connectNearbyPaths(state.network, state.locations);
+        clearRoute();
+      }
       state.drawing = null; state.pending = null; state.selected = { type: "edge", id };
     });
     setMode("select");
@@ -1317,6 +1325,17 @@
   function resetCampusView() { if (state.map) { state.map.setCenter(CAMPUS_CENTER); state.map.setZoom(17); state.map.setMapTypeId(elements.mapType.value); } }
 
   function bindEvents() {
+    document.querySelector("#connect-paths-button").addEventListener("click", () => {
+      if (!window.confirm("Connect outdoor paths throughout this draft within 2 meters? Same-level crossings will become junctions. Review for walls or parallel paths afterward. This can be undone.")) return;
+      let report;
+      mutate("connect nearby paths", () => {
+        report = Data.connectNearbyPaths(state.network, state.locations);
+        clearRoute();
+        state.selected = null;
+      });
+      runValidation();
+      showToast(`Connected paths: ${report.junctions} new junctions, ${report.splits} splits, ${report.merges} merged nodes. Undo to revert.`);
+    });
     elements.modeButtons.forEach((button) => button.addEventListener("click", () => setMode(button.dataset.mode)));
     elements.undo.addEventListener("click", undo); elements.redo.addEventListener("click", redo);
     elements.delete.addEventListener("click", deleteSelected); elements.cancel.addEventListener("click", () => cancelCurrentOperation());

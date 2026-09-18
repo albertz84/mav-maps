@@ -63,7 +63,7 @@
     return { distance: Math.hypot(p.x - closest.x, p.y - closest.y), t };
   }
 
-  function segmentIntersection(a, b, c, d) {
+  function segmentIntersection(a, b, c, d, includeEndpoints = false) {
     const origin = a;
     const p = toPlanar(a, origin);
     const p2 = toPlanar(b, origin);
@@ -77,8 +77,97 @@
     const qp = { x: q.x - p.x, y: q.y - p.y };
     const t = cross(qp, s) / denominator;
     const u = cross(qp, r) / denominator;
-    if (t <= 1e-5 || t >= 0.99999 || u <= 1e-5 || u >= 0.99999) return null;
+    if (includeEndpoints ? (t < 0 || t > 1 || u < 0 || u > 1) :
+      (t <= 1e-5 || t >= 0.99999 || u <= 1e-5 || u >= 0.99999)) return null;
     return { lat: a.lat + (b.lat - a.lat) * t, lng: a.lng + (b.lng - a.lng) * t, t, u };
+  }
+
+  // Authoring-time topology repair, not a routing-time shortcut. Only outdoor,
+  // open paths on the same level/access tier may be joined automatically.
+  function connectNearbyPaths(network, locations = [], tolerance = 2) {
+    const surface = new Set(["walkway", "sidewalk", "crosswalk", "parking-path"]);
+    const nodeById = (id) => network.nodes.find((n) => String(n.id) === String(id));
+    const eligible = (e) => surface.has(e.type) && e.status === "open" &&
+      Number(nodeById(e.from)?.level) === Number(nodeById(e.to)?.level);
+    const compatible = (n, e) => !n.intentionallyIsolated && eligible(e) &&
+      Number(n.level) === Number(nodeById(e.from)?.level) &&
+      n.visibility === e.visibility &&
+      network.edges.filter((x) => x.from === n.id || x.to === n.id)
+        .every((x) => eligible(x) && x.visibility === e.visibility);
+    let junctions = 0;
+    let splits = 0;
+    let merges = 0;
+    const mergedNodeIds = {};
+    // Merge nearly coincident endpoints first. Keep location assignments valid.
+    for (const a of [...network.nodes]) {
+      if (!network.nodes.includes(a)) continue;
+      for (const b of [...network.nodes]) {
+        if (a === b || a.intentionallyIsolated || b.intentionallyIsolated || !network.nodes.includes(b) || a.visibility !== b.visibility ||
+            Number(a.level) !== Number(b.level) || haversineMeters(a, b) > tolerance) continue;
+        const incident = network.edges.filter((e) => [e.from, e.to].includes(a.id) || [e.from, e.to].includes(b.id));
+        if (!incident.length || !incident.every((e) => eligible(e) && e.visibility === a.visibility)) continue;
+        // Don't collapse a short, intentionally drawn edge into a self-loop.
+        if (incident.some((e) => [e.from, e.to].includes(a.id) && [e.from, e.to].includes(b.id))) continue;
+        network.edges.forEach((e) => {
+          if (e.from === b.id) { e.from = a.id; e.geometry[0] = { lat: a.lat, lng: a.lng }; }
+          if (e.to === b.id) { e.to = a.id; e.geometry[e.geometry.length - 1] = { lat: a.lat, lng: a.lng }; }
+          e.lengthMeters = polylineLength(e.geometry);
+        });
+        locations.forEach((l) => {
+          for (const field of ["arrivalNodeId", "destinationNodeId"]) if (l[field] === b.id) l[field] = a.id;
+        });
+        network.nodes.splice(network.nodes.indexOf(b), 1);
+        mergedNodeIds[b.id] = a.id;
+        merges++;
+      }
+    }
+    // True crossings become reusable nodes. Nearby sampled vertices are handled
+    // by the node-to-segment pass below, including T junctions.
+    const edges = network.edges.filter(eligible);
+    for (let i = 0; i < edges.length; i++) for (let j = i + 1; j < edges.length; j++) {
+      const a = edges[i], b = edges[j];
+      if (a.visibility !== b.visibility || Number(nodeById(a.from).level) !== Number(nodeById(b.from).level)) continue;
+      for (let ai = 1; ai < a.geometry.length; ai++) for (let bi = 1; bi < b.geometry.length; bi++) {
+        const point = segmentIntersection(a.geometry[ai - 1], a.geometry[ai], b.geometry[bi - 1], b.geometry[bi], true);
+        if (!point || network.nodes.some((n) => compatible(n, a) && haversineMeters(n, point) <= tolerance)) continue;
+        network.nodes.push({ id: uniqueStringId("node", "auto-junction", network.nodes), name: "Path junction",
+          lat: point.lat, lng: point.lng, level: Number(nodeById(a.from).level), type: "intersection",
+          accessible: a.accessible !== false && b.accessible !== false, visibility: a.visibility });
+        junctions++;
+      }
+    }
+    for (const edge of [...network.edges]) {
+      if (!eligible(edge)) continue;
+      const cuts = [];
+      for (const node of network.nodes) {
+        if ([edge.from, edge.to].includes(node.id) || !compatible(node, edge)) continue;
+        let best = null;
+        for (let i = 1; i < edge.geometry.length; i++) {
+          const hit = pointToSegmentMeters(node, edge.geometry[i - 1], edge.geometry[i]);
+          if (hit.distance <= tolerance && (!best || hit.distance < best.distance)) best = { ...hit, offset: i - 1 + hit.t, node };
+        }
+        if (best && best.offset > 0.000001 && best.offset < edge.geometry.length - 1 - 0.000001) cuts.push(best);
+      }
+      cuts.sort((a, b) => a.offset - b.offset);
+      let previous = { offset: 0, node: nodeById(edge.from) };
+      const template = clone(edge);
+      let first = true;
+      for (const cut of [...cuts, { offset: edge.geometry.length - 1, node: nodeById(edge.to) }]) {
+        if (cut.offset - previous.offset < 0.000001) continue;
+        const geometry = [{ lat: previous.node.lat, lng: previous.node.lng }];
+        for (let i = Math.floor(previous.offset) + 1; i < cut.offset; i++) geometry.push(clone(template.geometry[i]));
+        geometry.push({ lat: cut.node.lat, lng: cut.node.lng });
+        const part = { ...clone(template), from: previous.node.id, to: cut.node.id,
+          geometry, lengthMeters: polylineLength(geometry) };
+        if (first) { Object.assign(edge, part); first = false; }
+        else {
+          part.id = uniqueStringId("edge", template.id + "-junction", network.edges);
+          network.edges.push(part); splits++;
+        }
+        previous = cut;
+      }
+    }
+    return { junctions, splits, merges, mergedNodeIds };
   }
 
   function slug(value) {
@@ -312,6 +401,6 @@
     CAMPUS_BOUNDS, CATEGORIES, ACCESS_VISIBILITIES, MARKER_MODES, NODE_TYPES, EDGE_TYPES,
     EDGE_STATUSES, clone, inCampusBounds, haversineMeters, polylineLength, pointToSegmentMeters,
     segmentIntersection, slug, uniqueStringId, nextLocationId, normalizeLocation, normalizeNetwork,
-    connectedComponents, validateEditorData, stableLocations, stableNetwork
+    connectedComponents, validateEditorData, stableLocations, stableNetwork, connectNearbyPaths
   };
 });

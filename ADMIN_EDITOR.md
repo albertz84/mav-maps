@@ -50,7 +50,7 @@ Keyboard controls do not fire while typing in a field:
 3. Complete the form. The ID is generated from the highest existing numeric ID.
 4. Choose **Add location**. Canceling removes the temporary marker.
 
-In Select mode, click a location marker or a location in the searchable list. The selected marker becomes larger and draggable. Dragging it updates the stored coordinates. The editor also supports duplication, deletion, parent selection, arrival/destination route-node dropdowns, and assigning a node by clicking its blue map marker.
+In Select mode, click a location marker or a location in the searchable list. The selected marker becomes larger and draggable. Dragging it updates the stored coordinates. The editor also supports duplication, deletion, parent selection, and one **Routing node** dropdown. Alternatively, click **Assign routing node on map**, then a blue node. Saving the location writes the same selection to both `arrivalNodeId` and `destinationNodeId`; clearing the selection clears both. Existing records default to their destination node, or their arrival node if no destination is assigned. Records are not changed until saved.
 
 Existing records are not rewritten just because the editor loads them. Optional fields are added only after the record is edited and exported.
 
@@ -79,7 +79,11 @@ Deleting a connected node warns that its edges will also be deleted. Location re
 
 ## Draw and edit paths
 
-For quick tracing, choose **Freehand**, hold the mouse button and drag along a walkway, then release. Review the existing path form and choose **Add path**. The editor creates endpoint nodes automatically and uses the same endpoint snapping and junction prompt as the click-based Path tool. Each saved stroke is one undoable action and remains editable with vertex handles.
+**Automatic connections:** the path form defaults to “Connect nearby outdoor paths (2 m).” Saving repairs nearby connections throughout the draft in the same undo step: nearly coincident nodes are merged, paths passing within 2 meters of nodes are split at those nodes, and crossing paths get shared junctions. Metadata and location routing assignments are preserved. Use **Validate → Connect nearby paths (2 m)** to repair an existing drawing, then test the route again. Undo reverses the repair.
+
+Only open outdoor walkways, sidewalks, crosswalks, and parking paths at the same level and access visibility are eligible. Tunnels, corridors, stairs, elevators, and different-floor connections are not automatically joined. Uncheck the option for separated paths, and review the result: proximity cannot detect walls, fences, bridges, or misleading satellite imagery. Nearby parallel paths can also connect, so use Undo if needed. This edits the local draft only; export and deliberately update the public routing snapshot after review.
+
+For quick tracing, choose **Freehand**, hold the mouse button and drag along a walkway, then release. Review the path form and choose **Add path**. The editor creates endpoint nodes and connects nearby eligible paths automatically on save, without a separate junction prompt. The click-based Path tool works the same way. Saving or dragging a node also connects nearby eligible paths automatically. Each change is undoable; existing routes do not need to be redrawn.
 
 Freehand samples points every six screen pixels; it does not automatically smooth or interpret the route. Tiny strokes are discarded. Escape cancels an unfinished stroke. Switch to **Select** to pan or zoom before drawing another stroke. The existing **Path** button still supports precise point-by-point drawing.
 
@@ -91,9 +95,9 @@ Freehand samples points every six screen pixels; it does not automatically smoot
 
 While drawing, a purple dashed preview follows the pointer. Nearby nodes gain a green snap highlight. The snap distance changes with zoom so it remains intuitive. `Backspace` removes the latest unsaved point and `Escape` cancels the full draft.
 
-If a new endpoint is close to the middle of an existing edge, the editor offers to create a junction. Accepting creates a routing node, splits the old edge into two geometry-preserving edges, recalculates their lengths, and connects the new edge. The selected-edge form also has **Split at midpoint** for a deliberate split.
+If a new endpoint is within 2 meters of an eligible existing path, saving automatically creates the connection, splits the path, and recalculates lengths. The selected-edge form also has **Split at midpoint** for a deliberate split.
 
-New paths that cross existing paths without a shared node show a warning. You may save them disconnected when the paths are on different floors or one is a tunnel. Validation continues to flag the crossing for review. The editor does not assume that every visual crossing is a real junction.
+Eligible outdoor crossings connect automatically by default. Turn off automatic connections in the path form to keep separated paths disconnected; a crossing warning then asks you to confirm. Tunnels and different floors are excluded from automatic connection. Validation still reports unresolved crossings for review.
 
 In Select mode, click a path to emphasize it and enable Google’s editable polyline handles. Drag a vertex to reshape it; drag a midpoint handle to insert a vertex. Right-click a non-endpoint vertex to remove it. Path length recalculates after geometry changes. Moving an endpoint vertex moves its attached routing node and updates all other edges connected to that node. The form can reverse direction, reconnect either endpoint with a dropdown, change metadata, split, or delete the edge.
 
